@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portofolio Interaktif</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-image">
+        <img src="bahan-gambar/3.png">
+      </div>
+      <div class="hero-text">
+        <h1>Ariq Sugianto</h1>
+        <p>A highly motivated Industrial Engineering graduate who thrives on new challenges, adapts swiftly to change, and is eager to support and drive company goals forward with passion and dedication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pengalaman Kerja -->
+  <section class="section">
+    <h2>Professional Experiences</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="slide-images">
+            <img src="bahan-gambar/tim.jpg" alt="PM">
+            <img src="bahan-gambar/gudang.jpg" alt="PM">
+            <img src="bahan-gambar/kom.jpg" alt="PM">
+          </div>
+          <h3>PT Alusbae Cipta Solusi</h3>
+          <p>Sales Executive (Jan 2025 - Present)</p>
+          <p>Project Manager (Jun 2024 - Jan 2025)</p>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide-images">
+            <img src="bahan-gambar/nongki.jpg" alt="PM">
+            <img src="bahan-gambar/online.jpg" alt="PM">
+          </div>
+          <h3>PT Vocasia Eduka</h3>
+          <p>Leader Team in Partnership Program - Intern (Feb - Jul 2022)</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Pendidikan -->
+  <section class="section">
+    <h2>Educational</h2>
+    <div class="card single">
+      <h3>Institut Teknologi Nasional Bandung</h3>
+      <p>Bachelor (S1) Industrial Engineering (2019 - 2024)</p>
+    </div>
+  </section>
+
+  <!-- Pengalaman Organisasi -->
+  <section class="section">
+    <h2>Organizational Experiences</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="slide-images">
+            <img src="bahan-gambar/p1.jpg" alt="Organisasi 1">
+            <img src="bahan-gambar/p2.jpg" alt="Organisasi 2">
+          </div>
+          <h3>Himpunan Mahasiswa Teknik Industri (HMTI)</h3>
+          <p>President (Feb - Sep 2023)</p>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide-images">
+            <img src="bahan-gambar/dpa.jpg" alt="Organisasi 3">
+            <img src="bahan-gambar/dpa2.jpg" alt="Organisasi 3">
+          </div>
+          <h3>Himpunan Mahasiswa Teknik Industri (HMTI)</h3>
+          <p>Representative Council (2021 - 2022)</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section class="social-links">
+    <h2>You can find me:</h2>
+    <p>Email: ariqsugianto48@email.com</p>
+    <p>Phone: +62 813 2192 5386</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/ariq-sugianto/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
+      </a>
+      <a href="https://www.tiktok.com/@ariqsugiantoo" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/tiktok.svg" alt="TikTok"> TikTok
+      </a>
+      <a href="https://www.instagram.com/ariqsgnt/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram"> Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Ariq Sugianto. All rights reserved.
+  </footer>
+
+  <!-- Modal Gambar -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Inisialisasi semua swiper
+    const swipers = document.querySelectorAll('.mySwiper');
+    swipers.forEach(swiperElement => {
+      new Swiper(swiperElement, {
+        loop: true,
+        speed: 800,
+        navigation: {
+          nextEl: swiperElement.querySelector('.swiper-button-next'),
+          prevEl: swiperElement.querySelector('.swiper-button-prev'),
+        },
+        pagination: {
+          el: swiperElement.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+      });
+    });
+
+    // Modal Gambar
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close');
+    const slideImages = document.querySelectorAll('.slide-images img'); // Ambil semua gambar
+
+    // Menambahkan event listener pada gambar
+    slideImages.forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = "block";  // Menampilkan modal
+        modalImg.src = this.src;       // Menampilkan gambar yang diklik di modal
+      });
+    });
+
+    // Menutup modal saat tombol close diklik
+    closeBtn.onclick = function() { 
+      modal.style.display = "none";    
+    }
+
+    // Menutup modal saat area luar modal diklik
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
